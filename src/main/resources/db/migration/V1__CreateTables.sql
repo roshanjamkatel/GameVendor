@@ -1,7 +1,7 @@
 -- Game Table
 CREATE TABLE games
 (
-    id               int          NOT NULL PRIMARY KEY,
+    id               SERIAL         NOT NULL PRIMARY KEY,
     name             VARCHAR(100) NOT NULL,
     genre            VARCHAR(100) NOT NULL,
     rating           int,
@@ -26,7 +26,7 @@ CREATE TABLE library
 -- Users Table
 CREATE TABLE users
 (
-    id       int          NOT NULL PRIMARY KEY,
+    id       SERIAL          NOT NULL PRIMARY KEY,
     name     VARCHAR(100) NOT NULL,
     username VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL
@@ -42,7 +42,7 @@ CREATE TABLE points
 -- Reviews Tabel
 CREATE TABLE reviews
 (
-    id      int NOT NULL PRIMARY KEY,
+    id      SERIAL NOT NULL PRIMARY KEY,
     game_id int NOT NULL,
     user_id int NOT NULL,
     rating  int NOT NULL,
