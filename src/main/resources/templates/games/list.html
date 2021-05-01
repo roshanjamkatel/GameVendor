@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Games</title>
+</head>
+<body>
+
+<div>
+    <h2 class="text-2xl text-center">Games</h2>
+</div>
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Game</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Price</th>
+            <th scope="col">Operating System</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${games.empty}">
+            <td colspan="2"> No Games Available</td>
+        </tr>
+        <tr scope="row" th:each="game : ${games}">
+            <td th:text="${game.name}"></td>
+            <td th:text="${game.genre}"></td>
+            <td th:text="${game.rating}"></td>
+            <td th:text="${game.price}"></td>
+            <td th:text="${game.operating_system}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/" class="text-blue-500">Go Home</a>
+</div>
+
+</body>
+</html>
