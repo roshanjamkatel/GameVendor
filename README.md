@@ -23,3 +23,5 @@ Application where users can access game content online
 - forum_topics (Nosql) -> forum topics (i.e. "Help")
 - forum_posts (Nosql) -> forum posts made by users
 - blog_posts (NoSql) -> updates for the community made by the GameVendor team
+- shopping cart (noSql)
+- 
