@@ -6,8 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "wish list")
-public class wishList {
+public class WishList {
 
     @Id
     @GeneratedValue

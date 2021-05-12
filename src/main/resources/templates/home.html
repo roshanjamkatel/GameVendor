@@ -9,12 +9,12 @@
     <title>GameVendor</title>
 </head>
 <body>
-<div th:replace="fragments/header :: header">...</div>
+<div th:replace="fragments/header :: header"></div>
 <div class="py-10 px-10 text-center">
     <h1 class="text-2xl ">Welcome to GameVendor</h1>
     <p>Our mission is to allow you to view and purchase games online and share information with your friends.</p>
     <a href="/games" class="text-md text-indigo-500">View Games</a>
+    <div th:replace="fragments/footer :: footer" class="mt-10">&copy; 2021 GameVendor</div>
 </div>
-    <div th:replace="fragments/footer :: footer">&copy; 2021 GameVendor</div>
 </body>
 </html>

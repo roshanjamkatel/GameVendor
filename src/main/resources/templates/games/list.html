@@ -9,17 +9,20 @@
     <title>Games</title>
     <style>
         .column {
-                float: left;
-                width: 25%;
-                padding: 0 10px;
+            float: left;
+            width: 25%;
+            padding: 0 10px;
         }
-        .row {margin: 0 -5px;}
+
+        .row {
+            margin: 0 -5px;
+        }
 
         /* Clear floats after the columns */
         .row:after {
-                content: "";
-                display: table;
-                clear: both;
+            content: "";
+            display: table;
+            clear: both;
         }
     </style>
 </head>
@@ -29,52 +32,29 @@
     <h2 class="text-2xl text-center">Games</h2>
 </div>
 <div>
-    <div class="row"></div>
-    <div th:each="game : ${games}">
+    <div class="row">
+        <div th:each="game : ${games}">
             <div class="column">
                 <!-- th:href="${game.name}" -->
                 <a href="/detailedView" th:href="@{/detailedView(game=${game.name})}">
                     <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                        <img class="w-full" src="missing-img.jpg" alt="No image avalible">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2"><span th:text="${game.name}"</span></div>
-                        <p class="text-gray-700 text-base">
+                        <img class="w-full" src="/images/missing-img.jpg" alt="No image avalible">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-xl mb-2"><span th:text="${game.name}"></span></div>
+                            <p class="text-gray-700 text-base">
                             <h4 th:text="${game.name}"></h4>
                             <h3>Genre: <span th:text="${game.genre}"></span></h3>
                             <h3>Rating: <span th:text="${game.rating}"></span>/10</h3>
                             <h3>Price: $<span th:text="${game.price}"></span></h3>
                             <h3>Playable on <span th:text="${game.operating_system}"></span></h3>
-                        </p>
-                    </div>
+                            </p>
+                        </div>
                     </div>
                 </a>
-             </div>
+            </div>
         </div>
     </div>
-    <!-- <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Game</th>
-            <th scope="col">Genre</th>
-            <th scope="col">Rating</th>
-            <th scope="col">Price</th>
-            <th scope="col">Operating System</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:if="${games.empty}">
-            <td colspan="2"> No Games Available</td>
-        </tr>
-        <tr scope="row" th:each="game : ${games}">
-            <td th:text="${game.name}"></td>
-            <td th:text="${game.genre}"></td>
-            <td th:text="${game.rating}"></td>
-            <td th:text="${game.price}"></td>
-            <td th:text="${game.operating_system}"></td>
-        </tr>
-        </tbody>
-    </table> -->
-</div>
     <div th:replace="fragments/footer :: footer">&copy; 2021 GameVendor</div>
+</div>
 </body>
 </html>

@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    ...
-</head>
-
-<body>
-    <div th:fragment="footer" class='w-full text-center border-t border-grey p-4 pin-b'>  
-        <a href="/" class="text-blue-500">Go Home</a>
-        &copy; 2021 GameVendor
+<!-- This example requires Tailwind CSS v2.0+ -->
+<footer th:fragment="footer" class="bg-white text-center">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="mt-8">
+            <p class="text-center text-base text-gray-400">
+                &copy; 2021 GameVendor. All rights reserved.
+            </p>
+        </div>
     </div>
-</body>
-
-</html>
+</footer>
