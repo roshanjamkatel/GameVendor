@@ -6,8 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "shopping cart")
-public class shoppingCart {
+public class ShoppingCart {
 
     @Id
     @GeneratedValue

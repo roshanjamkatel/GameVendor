@@ -20,7 +20,12 @@ public class GameController {
 
         return "games/list";
     }
-
+    // double check
+    @GetMapping("/detailedView")
+    public String showGameDetails(Model game) {
+        game.addAttribute("games", gameRepository.findAll());
+        return "games/detailedView";
+    }
 
     @GetMapping("/")
     public String helloGame() {
