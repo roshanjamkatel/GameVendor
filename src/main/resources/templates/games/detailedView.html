@@ -37,7 +37,10 @@
                 <div class="text-center">
                     <div class="grid grid-cols-1 divide-y divide-yellow-500">
                         <div>
-                            <h1>Summary:</h1>
+                            <h1>Reviews:</h1>
+                            <tr th:each="review : ${reviews}">
+                                <span th:text="${review}"></span>
+                            </tr>
                         </div>
                     </div>
                 </div>
