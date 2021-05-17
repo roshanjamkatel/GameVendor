@@ -6,7 +6,8 @@ CREATE TABLE games
     genre            VARCHAR(100) NOT NULL,
     rating           int,
     price            int          NOT NULL,
-    operating_system VARCHAR(100) NOT NULL
+    operating_system VARCHAR(100) NOT NULL,
+    summary text
 );
 
 -- Friends Table
@@ -46,7 +47,8 @@ CREATE TABLE reviews
     game_id int NOT NULL,
     user_id int NOT NULL,
     rating  int NOT NULL,
-    review  text
+    review  text,
+    FOREIGN KEY (game_id) REFERENCES games(id)
 );
 
 -- stats table
