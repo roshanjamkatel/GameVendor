@@ -2,7 +2,7 @@ package com.group7ooec.gamevendor.controller;
 
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.group7ooec.gamevendor.model.Reviews;
+
 import com.group7ooec.gamevendor.repository.GameRepository;
 import com.group7ooec.gamevendor.repository.ReviewRepository;
 
@@ -18,6 +18,8 @@ public class GameController {
 
     @Autowired
     private GameRepository gameRepository;
+    
+    @Autowired
     private ReviewRepository reviewRepository;
 
     @GetMapping("/games")
@@ -26,18 +28,19 @@ public class GameController {
 
         return "games/list";
     }
-    // double check
+    
+    
     @GetMapping("/detailedView")
     public String showGameDetails(Model game) {
         game.addAttribute("games", gameRepository.findAll());
         return "games/detailedView";
     }
 
-    // Find reviews for given game
-    @GetMapping("/detailedView?game={game}")
-    public String showReviewDetails(Model review) {
+    @GetMapping("/gameReview")
+    public String showGameReviews(Model game, Model review) {
+        game.addAttribute("games", gameRepository.findAll());
         review.addAttribute("reviews", reviewRepository.findAll());
-        return "/detailedView?game={game}";
+        return "games/gameReview";
     }
 
     @GetMapping("/")

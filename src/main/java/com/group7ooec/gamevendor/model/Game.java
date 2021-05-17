@@ -28,6 +28,9 @@ public class Game {
     @Column(name = "operating_system")
     private String operating_system;
 
+    @Column(name = "summary")
+    private String summary;
+
     public int getPrice() {
         return price;
     }
@@ -74,5 +77,13 @@ public class Game {
 
     public void setOperating_system(String operating_system) {
         this.operating_system = operating_system;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 }

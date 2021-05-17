@@ -1,6 +1,5 @@
 package com.group7ooec.gamevendor.repository;
 
-import com.group7ooec.gamevendor.model.Game;
 import com.group7ooec.gamevendor.model.Reviews;
 
 import org.springframework.data.repository.CrudRepository;
