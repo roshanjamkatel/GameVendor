@@ -13,11 +13,11 @@ public class Reviews {
     @GeneratedValue
     private long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "game_id")
+    private String game_id;
 
-    @Column(name = "user")
-    private String user;
+    @Column(name = "user_id")
+    private String user_id;
 
     @Column(name = "rating")
     private int rating;
@@ -35,11 +35,11 @@ public class Reviews {
     }
 
     public String getName() {
-        return name;
+        return game_id;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.game_id = game_id;
     }
 
     public int getRating() {
@@ -54,9 +54,9 @@ public class Reviews {
 
     public void setReview(String review) { this.review = review; }
 
-    public void setUser(String user) { this.user = user; }
+    public void setUser(String user) { this.user_id = user; }
 
-    public String getUser() { return user;}
+    public String getUser() { return user_id;}
 
 
 

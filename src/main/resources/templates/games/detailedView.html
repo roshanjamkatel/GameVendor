@@ -10,22 +10,48 @@
 </head>
 
 <body>
-    <div th:replace="fragments/header :: header">...</div>
-        <div class="text-center">
-            <h1 class="text-2xl" th:text="${param.game}">Details not shown for this current title.</h1>
-            
-            <tr th:each="game : ${games}">
-                <!-- child nodes here -->
-                <h1 th:text="${game}"></h1>
-                <h1 th:text="${param.game}"></h1>
-                <h1 th:text="${game.name}"></h1>
-                <th:block th:text="${game.name} == ${param.game}">True/False</th:block>
-                
-            </tr>
+    <div class="flex flex-col h-screen">
+        <div th:replace="fragments/header :: header">...</div>
+            <main class="p-4 flex-grow text-center">
+                <h1 class="text-2xl text-center" th:text="${param.game}">Details not shown for this current title.</h1>
+                <tr th:each="game : ${games}" th:if="${game.name} == ${param.game[0]}">
+                    <!-- game information goes here -->
+                    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                        <div class="md:flex">
+                            <div class="md:flex-shrink-0">
+                                <img class="h-48 w-full object-cover md:h-full md:w-48" src="/images/missing-img.jpg"
+                                    alt="Image of the game">
+                            </div>
+                            <div class="p-8">
+                                <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Statistics</div>
+                                <!-- Doesn't give correct 100% of the time, add game URL to database to add this!-->
+                                <a href="/gameReview" th:href="@{/gameReview(game=${game.id})}" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Information about <span th:text="${param.game}"></span></a>
+                                <p class="mt-2 text-gray-500"><span th:text="${param.game}"></span> is a <span th:text="${game.genre}"></span>.</p>
+                                <p class="mt-2 text-gray-500">It costs around $<span th:text="${game.price}"></span>.</p>
+                                <p class="mt-2 text-gray-500">It is also rated <span th:text="${game.rating}"></span>/10</p>
+                                <p class="mt-2 text-gray-500"><span th:text="${param.game}"></span> is available on  <span th:text="${game.operating_system}"></span>.</p>
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+                    
+                <div class="text-center">
+                    <div class="grid grid-cols-1 divide-y divide-yellow-500">
+                        <div>
+                            <h1 class="text-xl">Summary:</h1>
+                            <tr th:each="game : ${games}" th:if="${game.name} == ${param.game[0]}">
+                                <p class="text-lg" th:text="${game.summary}"></p>
+                            </tr>
+                        </div>
+                    </div>
+                </div>
 
-            <h1>Summary:</h1>
-        </div>
-    <div th:replace="fragments/footer :: footer">&copy; 2021 GameVendor</div>
+                <!-- add to cart adds the item by game.id to the shopping cart and gives quantity, total price, tax, etc. for payment -->
+
+            </main>
+        <div th:replace="fragments/footer :: footer">&copy; 2021 GameVendor</div>
+    </div>
 </body>
 
 </html>
