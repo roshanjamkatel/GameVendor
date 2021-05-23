@@ -47,4 +47,10 @@ public class GameController {
     public String helloGame() {
         return "home";
     }
+
+
+    @GetMapping("/signup")
+    public String signupUser() {
+        return "signup";
+    }
 }
