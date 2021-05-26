@@ -3,6 +3,7 @@ CREATE TABLE games
 (
     id               SERIAL         NOT NULL PRIMARY KEY,
     name             VARCHAR(100) NOT NULL,
+    image            VARCHAR(100),
     genre            VARCHAR(100) NOT NULL,
     rating           int,
     price            int          NOT NULL,

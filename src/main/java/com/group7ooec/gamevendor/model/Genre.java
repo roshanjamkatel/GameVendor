@@ -8,14 +8,17 @@ public class Genre {
 
     public String name;
 
-    public Genre(String name){
+    public String image;
+
+    public Genre(String name, String image){
         this.name = name;
+        this.image = image;
     }
 
     @Override
     public String toString(){
         return String.format(
-                "Genre[id=%s, name=%s]",
-                id, name);
+                "Genre[id=%s, name=%s, image=%s]",
+                id, name, image);
     }
 }
