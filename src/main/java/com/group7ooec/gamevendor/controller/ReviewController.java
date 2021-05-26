@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class ReviewController {
 
-    // @Autowired
-    // private ReviewRepository reviewRepository;
+    @Autowired
+    private ReviewRepository reviewRepository;
 
-    // Find reviews for given game
-    // @GetMapping("/gameReview")
-    // public String showReviewDetails(Model review) {
-    //     review.addAttribute("reviews", reviewRepository.findAll());
-    //     return "games/detailedView";
-    // }
+    //Find reviews for given game
+    @GetMapping("/gameReview")
+    public String showReviewDetails(Model review) {
+        review.addAttribute("reviews", reviewRepository.findAll());
+        return "games/gameReview";
+    }
 
 }

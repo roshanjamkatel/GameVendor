@@ -19,7 +19,7 @@
                     <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
                         <div class="md:flex">
                             <div class="md:flex-shrink-0">
-                                <img class="h-48 w-full object-cover md:h-full md:w-48" src="/images/missing-img.jpg"
+                                <img class="h-48 w-full object-cover md:h-full md:w-48" th:src="@{${'/images/'+ game.image}}"
                                     alt="Image of the game">
                             </div>
                             <div class="p-8">
