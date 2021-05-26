@@ -18,7 +18,6 @@
                     <div>
                         <h1 class="text-xl">Reviews:</h1>
                         <tr th:each="review : ${reviews}" th:if="${param.game[0]} == ${review.game_id}">
-
                             <a class="block rounded w-full mb-10">
                                 <div class="bg-blue-500 rounded px-4 py-4 flex flex-col justify-between leading-normal shadow">
                                     <div>

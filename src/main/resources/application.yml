@@ -2,5 +2,5 @@ app:
   datasource:
     jdbc-url: jdbc:postgresql://localhost:5432/gamevendor
     username: postgres
-    password: Jamkatel1@
+    password: password
     pool-size: 30
