@@ -40,7 +40,7 @@
                                 <!-- th:href="${game.name}" -->
                                 <a href="/detailedView" th:href="@{/detailedView(game=${game.name})}">
                                     <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                                        <img class="w-full" src="/images/missing-img.jpg" alt="No image avalible">
+                                        <img class="w-full" th:src="@{${'/images/'+ game.image}}" alt="No image avalible">
                                         <div class="px-6 py-4">
                                             <div class="font-bold text-xl mb-2"><span th:text="${game.name}"></span></div>
                                             <p class="text-gray-700 text-base">

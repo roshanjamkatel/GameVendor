@@ -18,6 +18,9 @@ public class Game {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "image")
+    private String image;
+
     @Column(name = "genre")
     private String genre;
 
@@ -31,9 +34,10 @@ public class Game {
     private String operating_system;
 	
 //Constructor
-	public Game (Long id, String name, String genre, int rating, double price, String op){
+	public Game (Long id, String name, String image, String genre, int rating, double price, String op){
 		this.id = id;
 		this.name =name;
+		this.image = image;
 		this.genre = genre;
 		this.rating = rating;
 		this.price= price;
@@ -54,6 +58,14 @@ public class Game {
 
     public Long getId() {
         return id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setId(long id) {

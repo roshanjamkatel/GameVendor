@@ -22,12 +22,13 @@ public class GamevendorApplication implements CommandLineRunner {
     public void run(String ...args) throws Exception {
         genreRepository.deleteAll();
 
-        genreRepository.save(new Genre("Battle Royale"));
-        genreRepository.save(new Genre("FPS"));
-        genreRepository.save(new Genre("Strategy"));
+        genreRepository.save(new Genre("Battle Royale", "fn.jpeg"));
+        genreRepository.save(new Genre("Tactical Shooter", "valorant.jpeg"));
+        genreRepository.save(new Genre("FPS", "cod.jpeg"));
+        genreRepository.save(new Genre("Strategy", "aoe.jpeg"));
 
         // fetch all customers
-        System.out.println("Customers found with findAll():");
+        System.out.println("Genres found with findAll():");
         System.out.println("-------------------------------");
         for (Genre genre : genreRepository.findAll()) {
             System.out.println(genre);
