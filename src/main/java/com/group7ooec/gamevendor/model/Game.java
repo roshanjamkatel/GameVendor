@@ -3,6 +3,7 @@ package com.group7ooec.gamevendor.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -12,9 +13,13 @@ public class Game {
     @Id
     @GeneratedValue
     private long id;
-
+	
+	@NotNull(message = "Game name is required.")
     @Column(name = "name")
     private String name;
+
+    @Column(name = "image")
+    private String image;
 
     @Column(name = "genre")
     private String genre;
@@ -23,15 +28,27 @@ public class Game {
     private int rating;
 
     @Column(name = "price")
-    private int price;
+    private double price;
 
     @Column(name = "operating_system")
     private String operating_system;
+	
+//Constructor
+	public Game (Long id, String name, String image, String genre, int rating, double price, String op){
+		this.id = id;
+		this.name =name;
+		this.image = image;
+		this.genre = genre;
+		this.rating = rating;
+		this.price= price;
+		this.operating_system= op;
+	}
+	
+	public Game() {
+    }
 
-    @Column(name = "summary")
-    private String summary;
-
-    public int getPrice() {
+//getters and setters
+    public double getPrice() {
         return price;
     }
 
@@ -39,8 +56,16 @@ public class Game {
         this.price = price;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setId(long id) {
@@ -77,13 +102,5 @@ public class Game {
 
     public void setOperating_system(String operating_system) {
         this.operating_system = operating_system;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
     }
 }
