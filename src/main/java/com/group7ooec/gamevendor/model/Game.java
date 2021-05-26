@@ -33,8 +33,10 @@ public class Game {
     @Column(name = "operating_system")
     private String operating_system;
 	
+    @Column (name = "summary")
+    private String summary;
 //Constructor
-	public Game (Long id, String name, String image, String genre, int rating, double price, String op){
+	public Game (Long id, String name, String image, String genre, int rating, double price, String op, String summary){
 		this.id = id;
 		this.name =name;
 		this.image = image;
@@ -42,6 +44,7 @@ public class Game {
 		this.rating = rating;
 		this.price= price;
 		this.operating_system= op;
+        this.summary = summary;
 	}
 	
 	public Game() {
@@ -100,7 +103,16 @@ public class Game {
         return operating_system;
     }
 
-    public void setOperating_system(String operating_system) {
-        this.operating_system = operating_system;
+    public void setOperating_system(String summary) {
+        this.summary = summary;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 }
+
