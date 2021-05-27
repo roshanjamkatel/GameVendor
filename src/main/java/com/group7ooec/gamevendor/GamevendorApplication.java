@@ -91,6 +91,14 @@ public class GamevendorApplication implements CommandLineRunner {
             System.out.println(topic);
         }
         System.out.println();
+
+        // fetch all forum posts
+        System.out.println("ForumPosts found with findAll():");
+        System.out.println("-------------------------------");
+        for (ForumPost post : forumPostRepository.findAll()) {
+            System.out.println(post);
+        }
+        System.out.println();
     }
 
 }
