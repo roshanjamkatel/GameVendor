@@ -1,8 +1,12 @@
 package com.group7ooec.gamevendor;
 
 import com.group7ooec.gamevendor.model.BlogPost;
+import com.group7ooec.gamevendor.model.ForumPost;
+import com.group7ooec.gamevendor.model.ForumTopic;
 import com.group7ooec.gamevendor.model.Genre;
 import com.group7ooec.gamevendor.repository.BlogPostRepository;
+import com.group7ooec.gamevendor.repository.ForumPostRepository;
+import com.group7ooec.gamevendor.repository.ForumTopicRepository;
 import com.group7ooec.gamevendor.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -19,6 +23,12 @@ public class GamevendorApplication implements CommandLineRunner {
     @Autowired
     private BlogPostRepository blogPostRepository;
 
+    @Autowired
+    private ForumTopicRepository forumTopicRepository;
+
+    @Autowired
+    private ForumPostRepository forumPostRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(GamevendorApplication.class, args);
     }
@@ -27,6 +37,8 @@ public class GamevendorApplication implements CommandLineRunner {
     public void run(String ...args) throws Exception {
         genreRepository.deleteAll();
         blogPostRepository.deleteAll();
+        forumTopicRepository.deleteAll();
+        forumPostRepository.deleteAll();
 
         //Add Genres
         genreRepository.save(new Genre("Battle Royale", "fn.jpeg"));
@@ -43,6 +55,19 @@ public class GamevendorApplication implements CommandLineRunner {
 
         blogPostRepository.save(new BlogPost("Mosi", "GameVendor is simple for now. Our MVP was made to validate the idea. We are super excited to share what is coming next", "What's Next for GameVendor", "The future of GameVendor is bright", "future-of-gameVendor.png"));
 
+        //Add Topics
+        ForumTopic topicOne = new ForumTopic("Support", "support.png");
+        forumTopicRepository.save(topicOne);
+        ForumTopic topicTwo = new ForumTopic("Gaming", "gaming.png");
+        forumTopicRepository.save(topicTwo);
+        ForumTopic topicThree = new ForumTopic("Community", "community.png");
+        forumTopicRepository.save(topicThree);
+
+        //Add Posts
+        forumPostRepository.save(new ForumPost(topicTwo.id, "Ninja", "Fortnite is the best Game Ever", "I Love Fortnite"));
+        forumPostRepository.save(new ForumPost(topicOne.id, "Bad User", "How do I log in to this app?", "Confused on how to log in"));
+        forumPostRepository.save(new ForumPost(topicThree.id, "TimTheTatMan", "Make sure to buy a Herman Miller Chair #Ad", "Herman Miller is the best #Ad"));
+
         // fetch all genres
         System.out.println("Genres found with findAll():");
         System.out.println("-------------------------------");
@@ -56,6 +81,14 @@ public class GamevendorApplication implements CommandLineRunner {
         System.out.println("-------------------------------");
         for (BlogPost post : blogPostRepository.findAll()) {
             System.out.println(post);
+        }
+        System.out.println();
+
+        // fetch all forum topics
+        System.out.println("ForumTopics found with findAll():");
+        System.out.println("-------------------------------");
+        for (ForumTopic topic : forumTopicRepository.findAll()) {
+            System.out.println(topic);
         }
         System.out.println();
     }
