@@ -58,6 +58,9 @@ public class Reviews {
 
     public String getUser() { return user_id;}
 
-
+    @Override
+    public String toString() {
+        return String.format("Review=[Review: %s, Rating: %s/10]", review, rating);
+    }
 
 }

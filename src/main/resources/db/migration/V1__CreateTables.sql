@@ -29,9 +29,20 @@ CREATE TABLE library
 CREATE TABLE users
 (
     id       SERIAL          NOT NULL PRIMARY KEY,
-    name     VARCHAR(100) NOT NULL,
     username VARCHAR(100) NOT NULL,
-    password VARCHAR(100) NOT NULL
+    password VARCHAR(100) NOT NULL,
+    date_created timestamp default current_timestamp
+);
+
+-- Authority
+create table authority (
+    id serial primary key,
+    name varchar(15)
+);
+
+create table users_authority (
+    authority_id int,
+    user_id int
 );
 
 -- Points Table

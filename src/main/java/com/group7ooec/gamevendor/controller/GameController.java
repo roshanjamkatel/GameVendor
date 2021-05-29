@@ -32,9 +32,4 @@ public class GameController {
         return "home";
     }
 
-
-    @GetMapping("/signup")
-    public String signupUser() {
-        return "signup";
-    }
 }

@@ -20,7 +20,6 @@
                     <h1>Login page</h1>
 
                     <form th:action="@{/login}" method="post" >
-                    <form>
                         <div th:if="${param.error}">
                             <div class="alert alert-danger">
                                 Invalid username or password.
