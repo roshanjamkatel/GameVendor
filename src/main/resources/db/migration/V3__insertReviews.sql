@@ -30,8 +30,8 @@ VALUES (2, 2);
 
 
 -- Hash is a 12 round iteration of BCrypt, it comes out to password (for both users!)
-INSERT INTO users (id, username, password) 
-VALUES (1,'admin', '$2y$12$tWu1dcvBj5pX4/HZVs9/ZOucMWeGwFG40t67L8kKQmBq26mPCWPZu'); 
+INSERT INTO users (id, username, password)
+VALUES (DEFAULT,'admin', '$2y$12$tWu1dcvBj5pX4/HZVs9/ZOucMWeGwFG40t67L8kKQmBq26mPCWPZu'); 
 
-INSERT INTO users (id, username, password) 
-VALUES (2,'user', '$2y$12$tWu1dcvBj5pX4/HZVs9/ZOucMWeGwFG40t67L8kKQmBq26mPCWPZu');
+INSERT INTO users (id, username, password)
+VALUES (DEFAULT,'user', '$2y$12$tWu1dcvBj5pX4/HZVs9/ZOucMWeGwFG40t67L8kKQmBq26mPCWPZu');

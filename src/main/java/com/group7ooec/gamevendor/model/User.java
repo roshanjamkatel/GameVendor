@@ -31,6 +31,7 @@ public class User {
     @NotEmpty
     @Column(nullable = false, unique = true)
     private String username;
+
     @NotEmpty
     private String password;
 
@@ -41,5 +42,7 @@ public class User {
             joinColumns = { @JoinColumn(name = "user_id") },
             inverseJoinColumns = { @JoinColumn(name = "authority_id") })
     private Set<Authority> authorities = new HashSet<>();  
+
+
 
 }
