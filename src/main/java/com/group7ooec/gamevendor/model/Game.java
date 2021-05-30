@@ -114,5 +114,10 @@ public class Game {
     public void setSummary(String summary) {
         this.summary = summary;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Game=[name=%s, rating=%s/10]", name, rating);
+    }
 }
 
