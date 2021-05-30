@@ -42,7 +42,6 @@ public class SignupController {
     @PostMapping(value="/process_signup")
     public String processSignup(User user){
         if (userRepository.getUserByUsername(user.getUsername()) != null){
-            System.out.println("ok");
             return("signup");
         }
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
