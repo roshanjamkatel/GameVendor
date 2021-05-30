@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
+@Table(name = "shopping_cart")
 public class ShoppingCart {
 
     @Id
@@ -18,8 +19,11 @@ public class ShoppingCart {
     @Column(name = "price")
     private int price;
 
-    @Column(name = "Quantity")
+    @Column(name = "quantity")
     private int quantity;
+
+
+
 
     public int getPrice() {
         return price * quantity;
