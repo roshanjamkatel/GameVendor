@@ -3,11 +3,19 @@ package com.group7ooec.gamevendor;
 import com.group7ooec.gamevendor.model.BlogPost;
 import com.group7ooec.gamevendor.model.ForumPost;
 import com.group7ooec.gamevendor.model.ForumTopic;
+import com.group7ooec.gamevendor.model.Game;
 import com.group7ooec.gamevendor.model.Genre;
+import com.group7ooec.gamevendor.model.Reviews;
 import com.group7ooec.gamevendor.repository.BlogPostRepository;
 import com.group7ooec.gamevendor.repository.ForumPostRepository;
 import com.group7ooec.gamevendor.repository.ForumTopicRepository;
+import com.group7ooec.gamevendor.repository.GameRepository;
 import com.group7ooec.gamevendor.repository.GenreRepository;
+import com.group7ooec.gamevendor.repository.ReviewRepository;
+
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,6 +36,12 @@ public class GamevendorApplication implements CommandLineRunner {
 
     @Autowired
     private ForumPostRepository forumPostRepository;
+
+    @Autowired
+    private GameRepository gameRepository;
+
+    @Autowired
+    private ReviewRepository reviewRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(GamevendorApplication.class, args);
@@ -67,38 +81,64 @@ public class GamevendorApplication implements CommandLineRunner {
         forumPostRepository.save(new ForumPost(topicTwo.id, "Ninja", "Fortnite is the best Game Ever", "I Love Fortnite"));
         forumPostRepository.save(new ForumPost(topicOne.id, "Bad User", "How do I log in to this app?", "Confused on how to log in"));
         forumPostRepository.save(new ForumPost(topicThree.id, "TimTheTatMan", "Make sure to buy a Herman Miller Chair #Ad", "Herman Miller is the best #Ad"));
+        
+    }
 
-        // fetch all genres
-        System.out.println("Genres found with findAll():");
-        System.out.println("-------------------------------");
-        for (Genre genre : genreRepository.findAll()) {
-            System.out.println(genre);
-        }
-        System.out.println();
+    private static final Logger log = LoggerFactory.getLogger(GamevendorApplication.class);
 
-        // fetch all blog posts
-        System.out.println("BlogPosts found with findAll():");
-        System.out.println("-------------------------------");
-        for (BlogPost post : blogPostRepository.findAll()) {
-            System.out.println(post);
-        }
-        System.out.println();
+    @Bean
+    public CommandLineRunner log(GenreRepository repository){
+        return (args) -> {
+            // fetch all genres
+            log.trace("Trace info");
+            log.info("Genres found with findAll():");
+            log.info("-------------------------------");
+            for (Genre genre : genreRepository.findAll()) {
+                log.info(genre.toString());
+            }
+            log.info("");
 
-        // fetch all forum topics
-        System.out.println("ForumTopics found with findAll():");
-        System.out.println("-------------------------------");
-        for (ForumTopic topic : forumTopicRepository.findAll()) {
-            System.out.println(topic);
-        }
-        System.out.println();
+            // fetch all blog posts
+            log.info("BlogPosts found with findAll():");
+            log.info("-------------------------------");
+            for (BlogPost post : blogPostRepository.findAll()) {
+                log.info(post.toString());
+            }
+            log.info("");
 
-        // fetch all forum posts
-        System.out.println("ForumPosts found with findAll():");
-        System.out.println("-------------------------------");
-        for (ForumPost post : forumPostRepository.findAll()) {
-            System.out.println(post);
-        }
-        System.out.println();
+            // fetch all forum topics
+            log.info("ForumTopics found with findAll():");
+            log.info("-------------------------------");
+            for (ForumTopic topic : forumTopicRepository.findAll()) {
+                log.info(topic.toString());
+            }
+            log.info("");
+
+            // fetch all forum posts
+            log.info("ForumPosts found with findAll():");
+            log.info("-------------------------------");
+            for (ForumPost post : forumPostRepository.findAll()) {
+                log.info(post.toString());
+            }
+            log.info("");
+
+            // fetch all games
+            log.info("Games found with findAll():");
+            log.info("-------------------------------");
+            for (Game game : gameRepository.findAll()) {
+                log.info(game.toString());
+            }
+            log.info("");
+
+            // reviews
+            // fetch all reviews
+            log.info("Reviews found with findAll():");
+            log.info("-------------------------------");
+            for (Reviews review : reviewRepository.findAll()) {
+                log.info(review.toString());
+            }
+            log.info("");
+        };
     }
 
 }
