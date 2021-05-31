@@ -1,6 +1,9 @@
 # GameVendor
 Application where users can access game content online
 
+This application is a mock style of a shopping store that is focused on knowing about the game rather than just buying the game. 
+It utilizes PostgresSQL, MongoDB NoSQL, SpringBoot, Java, Thymeleaf, and Tailwindcss.
+
 # How to run
 - `cd database/docker`
 - `docker-compose up -d`
