@@ -1,0 +1,195 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Purchase Page</title>
+    
+    <style>
+        .input1{
+
+            outline: 2px solid rgb(38, 119, 211);
+            
+        }
+
+        label{
+            width: 85px;
+            display: inline-block;
+        }
+
+        .fname{
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        .lname{
+
+            padding-bottom: 10px;
+
+        }
+
+        .street{
+            padding-bottom: 10px;
+
+        }
+        
+        .city{
+            padding-bottom: 10px;
+        }
+
+        .state{
+            padding-bottom: 10px;
+        }
+
+        .payment-info-header{
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        .cc-num{
+            padding-bottom: 10px;
+        }
+
+        .cc-exp{
+            padding-bottom: 10px;
+        }
+
+        .cc-ccv{
+            padding-bottom: 10px;
+        }
+
+       
+    </style>
+  
+
+
+</head>
+
+<body>
+
+    <div class="flex flex-col h-screen">
+        <div th:replace="fragments/header :: header"></div>
+    
+        <div class="text-center">
+            <div class="grid grid-cols-1 divide-y divide-yellow-500">
+                
+                
+             
+                <div>
+                    <h1 class="text-xl">Purchase Game:</h1>
+
+
+
+
+                   
+                    <div class="p-8" >
+                        
+                        <tr th:each="cart : ${shoppingCart}" th:if="${cart.id} == ${param.item[0]}">
+                            
+                            
+                            <img class="mx-auto" width = "600px" heigth = "600px" th:src="@{${'/images/'+ cart.image}}"
+                                alt="Image of the game">
+                            
+
+                            <p class="p-3"><h1>Game: <span th:text="${cart.name}"></h1></span></p>
+                            <p class="p-3"> <h1>Your total is $<span th:text="${cart.price}"></h1></span></p>
+                            
+
+                        </tr>
+                        
+                        
+                        
+                    </div>
+
+
+                    <div class="solid">
+                        <div class="container mx-auto">
+                            <form action="/games" onsubmit = "purchaseComplete()">
+                                
+                                <u>
+                                <h2>
+                                    <i class="fas fa-shipping-fast"></i>
+                                    Shipping Details
+                                 </h2>
+                                </u>
+
+                                <div class="fname">
+                                    
+                                        <label class= "label" for="f-name" required>First:</label>
+                                        <input class= "input1" type="text" name="f-name" required="required">
+                                    
+                                </div>
+
+                                <div class = "lname">
+                                        <label for="l-name">Last:</label>
+                                        <input class= "input1" type="text" name="l-name" required="required">
+                                </div>
+                                
+                                <div class="street">
+                                    <label for="name">Street:</label>
+                                    <input class= "input1" type="text" name="address" required="required">
+                                </div>
+                                <div class="address-info">
+                                    <div class = "city">
+                                        <label for="city">City:</label>
+                                        <input class= "input1" type="text" name="city" required="required">
+                                    </div>
+                                    <div class = "state">
+                                        <label for="state">State:</label>
+                                        <input class= "input1" type="text" name="state" required="required">
+                                    </div>
+                                    <div>
+                                        <label for="zip">Zip:</label>
+                                        <input class= "input1" type="text" name="zip" required="required">
+                                    </div>
+                                </div>
+                                <div class="payment-info-header">
+                                    <u>
+                                        <h1>
+                                            <i class="far fa-credit-card"></i> Payment Information
+                                        </h1>
+                                    </u>
+                                </div>
+                                <div class="cc-num">
+                                    <label for="card-num">Credit Card Number:</label>
+                                    <input class= "input1" type="text" name="card-num" required="required">
+                                </div>
+                                <div class="cc-exp">
+                                    <div>
+                                        <label for="card-num">Exp:</label>
+                                        <input class= "input1" type="text" name="expire" required="required">
+                                    </div>
+                                </div>
+                                    <div class = "cc-ccv">
+                                        <label for="card-num">CCV:</label>
+                                        <input class= "input1" type="text" name="security" required="required">
+                                    </div>
+        
+                                    <a href="/games"><input type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" value = "Purchase Game"></a>
+                            </form>
+                            
+                        </div>
+                    </div>
+                    
+            
+                </div>
+            </div>
+        </div>
+    
+    
+        <div th:replace="fragments/footer :: footer">&copy; 2021 GameVendor</div>
+    </div>
+
+    <script>
+        function purchaseComplete(){
+            alert("Congradulations your purchase is complete! Please check your email for further information.")
+        }
+    </script>
+
+</body>
+</html>
