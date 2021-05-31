@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
 <div class="navbar navbar-inverse navbar-fixed-top" th:fragment="header">
     <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-blue-500 mb-3">
         <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
@@ -6,13 +17,6 @@
                    href="/" th:href="@{/}">
                     Game Vendor
                 </a>
-                <button
-                        class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-                        type="button">
-                    <span class="block relative w-6 h-px rounded-sm bg-white"></span>
-                    <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
-                    <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
-                </button>
             </div>
             <div class="lg:flex flex-grow items-center" id="example-navbar-warning">
                 <ul class="flex flex-col lg:flex-row list-none ml-auto">
@@ -53,7 +57,8 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    
+                    <li class="nav-item" sec:authorize="isAnonymous()">
                         <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                             href="#signup" th:href="@{/signup}">
                             Signup

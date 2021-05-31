@@ -16,11 +16,9 @@
 
         <center>
             <main class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <h1>Login page</h1>
-
-                    <form th:action="@{/login}" method="post" >
-                    <form>
+                    <div class="w-full max-w-xs">
+                    <form th:action="@{/login}" method="post"
+                        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                         <div th:if="${param.error}">
                             <div class="alert alert-danger">
                                 Invalid username or password.
@@ -31,20 +29,28 @@
                                 You have been logged out.
                             </div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" id="username" name="username" class="form-control" autofocus="autofocus"
-                                placeholder="Username">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                            <input type="text" id="username" name="username"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                required />
                         </div>
-                        <div class="form-group">
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                    
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                                Password
+                            </label>
+                            <input
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                                type="password" id="password" name="password" placeholder="******************">
                         </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3">
-                                    <input type="submit" name="login-submit" id="login-submit" class="form-control btn btn-info"
-                                        value="Log In">
-                                </div>
-                            </div>
+                    
+                        <div class="flex items-center justify-between">
+                            <button
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                name="login-submit" id="login-submit" type="submit">
+                                Sign In
+                            </button>  
                         </div>
                     </form>
 

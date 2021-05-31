@@ -51,6 +51,6 @@ public class SignupController {
         userRepository.save(user);
         return "login";
     }
-    
+
 
 }
