@@ -22,7 +22,17 @@ public class ShoppingCart {
     @Column(name = "quantity")
     private int quantity;
 
+    @Column(name = "image")
+    private String image;
 
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage() {
+        this.image = image;
+    }
 
 
     public int getPrice() {

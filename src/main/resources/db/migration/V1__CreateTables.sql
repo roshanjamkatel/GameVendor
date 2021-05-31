@@ -65,3 +65,14 @@ CREATE TABLE wishlist
     game_id int NOT NULL,
     user_id int NOT NULL
 );
+
+-- Shopping Cart
+CREATE Table shopping_cart
+(
+    id int NOT NULL,
+    game_id int NOT NULL,
+    price int,
+    quantity int, 
+    image VARCHAR(100),
+    name VARCHAR(100)
+);

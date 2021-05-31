@@ -30,7 +30,7 @@
                                 <p class="mt-2 text-gray-500">It costs around $<span th:text="${game.price}"></span>.</p>
                                 <p class="mt-2 text-gray-500">It is also rated <span th:text="${game.rating}"></span>/10</p>
                                 <p class="mt-2 text-gray-500"><span th:text="${param.game}"></span> is available on  <span th:text="${game.operating_system}"></span>.</p>
-                                <a href="#shoppingCart" th:href="@{/shoppingCart}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" >Add to Cart</button></a>
+                                <a href="#shoppingCart" th:href="@{/shoppingCart(item=${game.id})}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full" >Purchase Game</button></a>
                             </div>
                         </div>
                     </div>
