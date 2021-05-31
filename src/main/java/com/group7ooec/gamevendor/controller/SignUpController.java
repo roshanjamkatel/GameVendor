@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Controller
-public class SignupController {
+public class SignUpController {
 
     @Autowired
     private UserDetailsServiceImpl userService;
