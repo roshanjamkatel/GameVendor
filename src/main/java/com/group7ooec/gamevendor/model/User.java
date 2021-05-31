@@ -41,8 +41,26 @@ public class User {
     @JoinTable(name = "users_authority",
             joinColumns = { @JoinColumn(name = "user_id") },
             inverseJoinColumns = { @JoinColumn(name = "authority_id") })
-    private Set<Authority> authorities = new HashSet<>();  
+    private Set<Authority> authorities = new HashSet<>();
 
 
+    public String getUsername() {
+        return username;
+    }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String encodedPassword) {
+        this.password = encodedPassword;
+    }
+
+    public int getId() {
+        return id;
+    }
 }
