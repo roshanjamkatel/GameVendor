@@ -60,7 +60,7 @@ public class User {
         this.password = encodedPassword;
     }
 
-    public int getId() {
-        return id;
-    }
+    // public int getId() {
+    //     return id;
+    // }
 }

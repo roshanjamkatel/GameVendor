@@ -1,6 +1,7 @@
 package com.group7ooec.gamevendor.controller;
 
 import org.springframework.stereotype.Controller;
+import org.hibernate.query.criteria.internal.expression.function.CurrentTimestampFunction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.SpringSecurityMessageSource;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import com.group7ooec.gamevendor.security.UserDetailsServiceImpl;
 import com.group7ooec.gamevendor.security.UserRepository;
 
+import java.time.LocalDateTime;
 import java.util.Random;
 
 import com.group7ooec.gamevendor.model.User;
@@ -47,10 +49,10 @@ public class SignupController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setUsername(user.getUsername());
-        user.setPassword(encodedPassword);
+        user.setPassword(encodedPassword);        
         userRepository.save(user);
         return "login";
     }
-    
+
 
 }
